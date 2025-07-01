@@ -5,8 +5,8 @@ export default function Home() {
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-16 gap-12 bg-black text-white font-sans">
       {/* Hero Section */}
       <section className="text-center space-y-3">
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Rahul Garg <span className="text-blue-400">🚀</span></h1>
-        <p className="text-lg sm:text-xl text-gray-300 max-w-xl mx-auto">Senior Software Engineer passionate about large scale distributed systems and AI-driven automation. Ex-Amazon.</p>
+        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Rahul Garg <span className="text-blue-400">💡</span></h1>
+        <p className="text-base text-gray-400">25 year old something</p>
         <div className="flex justify-center gap-4 mt-3">
           <a href="mailto:rgarg2605@gmail.com" className="hover:text-blue-400 transition" title="Email"><FaEnvelope size={22} /></a>
           <a href="https://www.linkedin.com/in/rahulgarg2605" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition" title="LinkedIn"><FaLinkedin size={22} /></a>
@@ -23,9 +23,9 @@ export default function Home() {
         <p className="text-base text-gray-300">I build scalable systems and love automating the boring stuff. My work spans real-time voice assistants, high-throughput search, and CRM/payment platforms. Always learning, always shipping. Let's make something awesome together!</p>
       </section>
 
-      {/* Experience Section */}
+      {/* Places I Worked At Section */}
       <section className="max-w-2xl w-full">
-        <h2 className="text-2xl font-semibold mb-3 text-blue-400 text-center">Experience</h2>
+        <h2 className="text-2xl font-semibold mb-3 text-blue-400 text-center">Places I Worked At</h2>
         <div className="space-y-6">
           <div className="bg-gray-900 rounded-lg p-5 shadow-md border-l-4 border-blue-400">
             <div className="flex justify-between items-center mb-1">
@@ -52,6 +52,36 @@ export default function Home() {
               <li>Migrated 20TB of document storage to S3, improving reliability and reducing costs.</li>
               <li>Built full-stack services for vendor onboarding and compliance automation.</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Internship Section */}
+      <section className="max-w-2xl w-full">
+        <h2 className="text-2xl font-semibold mb-3 text-blue-400 text-center">Internships</h2>
+        <div className="bg-gray-900 rounded-lg p-5 shadow-md border-l-4 border-blue-400">
+          <div className="flex justify-between items-center mb-1">
+            <span className="font-bold">Research Intern, Samsung Research Institute Bangalore</span>
+            <span className="text-sm text-gray-400">2019</span>
+          </div>
+          <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 pl-2">
+            <li>Worked in a team focused on AI research, contributing to codebases in TensorFlow for research papers and experiments.</li>
+            <li>Collaborated on innovative projects at the intersection of computer vision and deep learning.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="max-w-2xl w-full">
+        <h2 className="text-2xl font-semibold mb-3 text-blue-400 text-center">Projects</h2>
+        <div className="bg-gray-900 rounded-lg p-5 shadow-md border-l-4 border-blue-400 space-y-2">
+          <div>
+            <span className="font-bold">Habit Pledge App</span>
+            <p className="text-gray-300 text-sm mt-1">Currently building an application to help people quit their bad habits by pledging money—turning commitment into real change.</p>
+          </div>
+          <div>
+            <span className="font-bold">System Design Learnings</span>
+            <p className="text-gray-300 text-sm mt-1">Actively learning and reading about system design. Will be sharing my learnings and insights in the blog soon!</p>
           </div>
         </div>
       </section>
