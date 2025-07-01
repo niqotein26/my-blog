@@ -6,11 +6,14 @@ export default function Home() {
       {/* Hero Section */}
       <section className="text-center space-y-3">
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Rahul Garg <span className="text-blue-400">🚀</span></h1>
-        <p className="text-lg sm:text-xl text-gray-300 max-w-xl mx-auto">Senior Software Engineer passionate about large scale distributed systems and AI-driven automation. Ex-BlinkHealth, Ex-Amazon.</p>
+        <p className="text-lg sm:text-xl text-gray-300 max-w-xl mx-auto">Senior Software Engineer passionate about large scale distributed systems and AI-driven automation. Ex-Amazon.</p>
         <div className="flex justify-center gap-4 mt-3">
           <a href="mailto:rgarg2605@gmail.com" className="hover:text-blue-400 transition" title="Email"><FaEnvelope size={22} /></a>
           <a href="https://www.linkedin.com/in/rahulgarg2605" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition" title="LinkedIn"><FaLinkedin size={22} /></a>
           <a href="tel:8755181453" className="hover:text-blue-400 transition" title="Phone"><FaPhone size={22} /></a>
+        </div>
+        <div className="mt-6">
+          <a href="/blog" className="inline-block px-6 py-2 rounded-full bg-blue-400 text-black font-semibold shadow hover:bg-blue-500 transition">Read the Blog</a>
         </div>
       </section>
 
