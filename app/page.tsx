@@ -13,7 +13,7 @@ export default function Home() {
           <a href="tel:8755181453" className="hover:text-blue-400 transition" title="Phone"><FaPhone size={22} /></a>
         </div>
         <div className="mt-6">
-          <a href="/blog" className="inline-block px-6 py-2 rounded-full bg-blue-400 text-black font-semibold shadow hover:bg-blue-500 transition">Read the Blog</a>
+          <a href="/blog" className="inline-block px-6 py-2 rounded-full bg-blue-400 text-black font-semibold shadow hover:bg-blue-500 transition">Blog</a>
         </div>
       </section>
 
