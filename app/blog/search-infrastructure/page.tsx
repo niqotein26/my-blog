@@ -29,6 +29,48 @@ const slides = [
     ),
   },
 
+  // SLIDE: MY ROLE
+  {
+    id: 18,
+    content: (
+      <div className="flex flex-col h-full gap-6">
+        <div>
+          <div className="text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">My Contribution</div>
+          <h2 className="text-4xl font-bold">What I Built & Led</h2>
+          <p className="text-gray-400 mt-2">Tech Lead · 3-engineer team · End-to-end ownership</p>
+        </div>
+        <div className="grid grid-cols-2 gap-6 flex-1">
+          <div className="flex flex-col gap-3">
+            <div className="text-blue-400 font-semibold text-xs uppercase tracking-wide">What I designed & built</div>
+            {[
+              ["Pipeline Architecture", "Designed the full event pipeline from scratch — Firehose, Lambda, and OpenSearch. No search infrastructure existed before this project."],
+              ["Aggregate Index + Merge Logic", "Built the aggregated OpenSearch index and the Lambda merge strategy that combines data from 6 independent services into a single queryable document."],
+              ["Optimistic Locking", "Designed and implemented two-layer OCC — per-service versioning and OpenSearch seq_no — to handle concurrent writes from multiple services safely."],
+            ].map(([title, desc]) => (
+              <div key={title} className="bg-gray-900 rounded-xl p-4 border border-blue-700 flex-1">
+                <div className="text-blue-400 font-semibold text-sm">{title}</div>
+                <div className="text-gray-400 text-xs mt-1">{desc}</div>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col gap-3">
+            <div className="text-purple-400 font-semibold text-xs uppercase tracking-wide">What I led & coordinated</div>
+            {[
+              ["Onboarded 6 Service Teams", "Worked with each service team to define event schemas and create their individual OpenSearch indexes. My pipeline consumed their existing Kinesis streams."],
+              ["Owned the Migration", "Managed the full cutover from monolith search to OpenSearch — coordinating readiness, validation, and rollback across all teams simultaneously."],
+              ["Unblocked a Company Initiative", "Search infrastructure was the critical path for the entire monolith → microservices migration. This was the primary business driver."],
+            ].map(([title, desc]) => (
+              <div key={title} className="bg-gray-900 rounded-xl p-4 border border-purple-700 flex-1">
+                <div className="text-purple-400 font-semibold text-sm">{title}</div>
+                <div className="text-gray-400 text-xs mt-1">{desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ),
+  },
+
   // SLIDE 2: THE PROBLEM
   {
     id: 2,
@@ -234,47 +276,113 @@ const slides = [
     ),
   },
 
-  // SLIDE 6: CDC - OUTBOX PATTERN
+  // SLIDE: CROSS-TEAM ONBOARDING
+  {
+    id: 19,
+    content: (
+      <div className="flex flex-col h-full gap-6">
+        <div>
+          <div className="text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">Leadership · Coordination</div>
+          <h2 className="text-4xl font-bold">Onboarding 6 Service Teams</h2>
+          <p className="text-gray-400 mt-2">The hardest part wasn&apos;t the technology — it was getting 6 independent teams aligned and migrated</p>
+        </div>
+        <div className="grid grid-cols-3 gap-4 flex-1">
+          <div className="bg-gray-900 rounded-xl p-5 border border-blue-700 flex flex-col gap-3">
+            <div className="text-blue-400 font-semibold">My Process Per Team</div>
+            {[
+              "Agree on event schema for their domain",
+              "Create the individual OpenSearch index",
+              "Write the Lambda mapping for their events",
+              "Run data parity validation",
+              "Sign off on readiness, then cut over",
+            ].map(step => (
+              <div key={step} className="flex items-start gap-2 text-gray-400 text-sm">
+                <span className="text-blue-400 mt-0.5 flex-shrink-0">→</span> {step}
+              </div>
+            ))}
+            <div className="bg-blue-950 rounded-lg p-3 border border-blue-800 mt-auto">
+              <div className="text-blue-300 text-xs">Created a runbook so onboarding became repeatable — later teams took 2 days instead of 5.</div>
+            </div>
+          </div>
+          <div className="bg-gray-900 rounded-xl p-5 border border-yellow-700 flex flex-col gap-4">
+            <div className="text-yellow-400 font-semibold">Challenges</div>
+            {[
+              { title: "Schema disagreements", desc: "Teams had conflicting opinions on what fields to expose. I owned the schema contract and made the final call on what the pipeline needed." },
+              { title: "Timeline pressure", desc: "The monolith migration was blocked on my infra. I staggered onboarding — services blocking pharmacy queues first, everything else second." },
+              { title: "Event ordering bugs", desc: "One service wasn't partitioning Kinesis by entityId — events arrived out-of-order. Caught this during validation before cutover." },
+            ].map(({ title, desc }) => (
+              <div key={title} className="flex flex-col gap-1">
+                <div className="text-yellow-300 text-sm font-medium">{title}</div>
+                <div className="text-gray-500 text-xs leading-relaxed">{desc}</div>
+              </div>
+            ))}
+          </div>
+          <div className="bg-gray-900 rounded-xl p-5 border border-purple-700 flex flex-col gap-3">
+            <div className="text-purple-400 font-semibold">Onboarding Order</div>
+            <div className="text-gray-500 text-xs mb-1">Prioritized by what was blocking the migration</div>
+            {[
+              { num: "1", name: "Prescription", reason: "Critical path — pharmacy queues blocked on this" },
+              { num: "2", name: "Patient + Fill", reason: "Queue dependency — needed together" },
+              { num: "3", name: "Fulfillment + Purchase", reason: "Secondary queues" },
+              { num: "4", name: "Account / OpenFGA", reason: "Permissions layer — last" },
+            ].map(({ num, name, reason }) => (
+              <div key={num} className="bg-gray-800 rounded-lg p-3 flex gap-3 items-start">
+                <span className="text-purple-400 font-bold text-sm flex-shrink-0">{num}.</span>
+                <div>
+                  <div className="text-gray-200 text-sm font-medium">{name}</div>
+                  <div className="text-gray-500 text-xs">{reason}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ),
+  },
+
+  // SLIDE 6: EVENT SOURCE
   {
     id: 6,
     content: (
       <div className="flex flex-col h-full gap-6">
         <div>
-          <div className="text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">Component 1 of 4</div>
-          <h2 className="text-4xl font-bold">Change Data Capture</h2>
-          <p className="text-gray-400 mt-2">How we detect every data change — reliably</p>
+          <div className="text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">Event Source · Context</div>
+          <h2 className="text-4xl font-bold">How Events Enter the Pipeline</h2>
+          <p className="text-gray-400 mt-2">Services already emitted events to Kinesis — our pipeline consumed from those existing streams</p>
         </div>
         <div className="grid grid-cols-2 gap-6 flex-1">
           <div className="flex flex-col gap-4">
-            <div className="bg-gray-900 rounded-xl p-5 border border-blue-700 flex-1">
-              <div className="text-blue-400 font-semibold mb-3">Outbox Pattern (Preferred)</div>
-              <div className="bg-gray-800 rounded-lg p-4 font-mono text-xs text-green-300 leading-relaxed">
-                <div className="text-gray-500">-- Atomic transaction</div>
-                <div>BEGIN TRANSACTION;</div>
-                <div className="ml-4 text-yellow-300">UPDATE patients</div>
-                <div className="ml-6">SET name = &apos;John Doe&apos;</div>
-                <div className="ml-6">WHERE id = 123;</div>
-                <div className="mt-2 ml-4 text-yellow-300">INSERT INTO outbox_events</div>
-                <div className="ml-6">(event_type, payload)</div>
-                <div className="ml-6">VALUES (</div>
-                <div className="ml-8">&apos;PatientUpdated&apos;,</div>
-                <div className="ml-8">&apos;&#123;"id": 123, ...&#125;&apos;</div>
-                <div className="ml-6">);</div>
-                <div>COMMIT;</div>
-              </div>
+            <div className="bg-blue-950 rounded-xl p-4 border border-blue-600">
+              <div className="text-blue-300 font-semibold mb-2 text-sm">Starting Point</div>
+              <div className="text-gray-300 text-sm leading-relaxed">Each microservice already had its own Kinesis stream publishing domain events. My pipeline subscribed to these — I didn&apos;t own or modify how services produced events.</div>
             </div>
-            <div className="bg-gray-900 rounded-xl p-4 border border-orange-700">
-              <div className="text-orange-400 font-semibold mb-2">AWS DMS (Fallback)</div>
-              <div className="text-gray-400 text-sm">For services we don't control — reads DB binlog/WAL directly. Faster to set up, less control over schema.</div>
+            <div className="bg-gray-900 rounded-xl p-5 border border-gray-700 flex-1">
+              <div className="text-gray-300 font-semibold mb-3 text-sm">How source services worked</div>
+              <div className="space-y-3">
+                <div className="bg-gray-800 rounded-lg p-3">
+                  <div className="text-blue-400 text-xs font-semibold mb-1">Outbox Pattern (most services)</div>
+                  <div className="font-mono text-xs text-green-300 leading-relaxed">
+                    <div className="text-gray-500">-- Atomic transaction</div>
+                    <div>BEGIN TRANSACTION;</div>
+                    <div className="ml-3 text-yellow-300">UPDATE patients SET name = &apos;John Doe&apos;;</div>
+                    <div className="ml-3 text-yellow-300">INSERT INTO outbox_events ...</div>
+                    <div>COMMIT;</div>
+                  </div>
+                </div>
+                <div className="bg-gray-800 rounded-lg p-3">
+                  <div className="text-orange-400 text-xs font-semibold mb-1">AWS DMS (some services)</div>
+                  <div className="text-gray-400 text-xs">Reads DB binlog/WAL directly → publishes to Kinesis. Used where teams didn&apos;t have outbox set up.</div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-3">
-            <div className="text-gray-300 font-semibold">Why Outbox Pattern?</div>
+            <div className="text-gray-300 font-semibold">What this meant for my pipeline</div>
             {[
-              ["Atomicity", "DB update + event in same transaction. No lost events if service crashes mid-way."],
-              ["Guaranteed Delivery", "Outbox processor retries until event is published to Kinesis."],
-              ["At-Least-Once", "May get duplicates — handled by idempotent Lambda downstream."],
-              ["Service Owned", "Each team controls their own event schema and outbox."],
+              ["At-Least-Once Delivery", "Kinesis guarantees at-least-once — my Lambda had to be idempotent. The same event could arrive twice."],
+              ["Out-of-Order Events", "Events from different services arrive independently. The aggregation logic had to handle any order."],
+              ["Per-Entity Ordering", "Within a single service, events for the same entity are ordered — but only within that partition."],
+              ["Schema Contract", "I worked with each team to agree on the event schema my pipeline would consume. Their events, my consumer."],
             ].map(([title, desc]) => (
               <div key={title} className="bg-gray-900 rounded-xl p-4 border border-gray-700">
                 <div className="text-blue-400 font-semibold text-sm">{title}</div>
@@ -688,6 +796,65 @@ const slides = [
                 <div><span className="text-blue-400">Schema:</span> <span className="text-gray-300">Denormalized for display</span></div>
                 <div><span className="text-blue-400">Benefit:</span> <span className="text-gray-300">One query, all data needed</span></div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+
+  // SLIDE: MIGRATION MANAGEMENT
+  {
+    id: 20,
+    content: (
+      <div className="flex flex-col h-full gap-6">
+        <div>
+          <div className="text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">Migration</div>
+          <h2 className="text-4xl font-bold">Managing the Cutover</h2>
+          <p className="text-gray-400 mt-2">Moving 100K+ daily users from monolith search to OpenSearch with zero downtime</p>
+        </div>
+        <div className="grid grid-cols-3 gap-4 flex-1">
+          <div className="bg-gray-900 rounded-xl p-5 border border-blue-700 flex flex-col gap-3">
+            <div className="text-blue-400 font-semibold">Cutover Strategy</div>
+            {[
+              { phase: "Phase 1", title: "Shadow indexing", desc: "Pipeline indexed into OpenSearch while monolith was still the source of truth. No user impact." },
+              { phase: "Phase 2", title: "Validation window", desc: "Ran parity checks — compared OpenSearch results to monolith for same queries. Target: <0.1% mismatch." },
+              { phase: "Phase 3", title: "Hard cutover", desc: "Flipped the switch per service, not all at once. Rollback was a single feature flag." },
+            ].map(({ phase, title, desc }) => (
+              <div key={phase} className="bg-gray-800 rounded-lg p-3">
+                <div className="text-xs text-gray-500 font-mono">{phase}</div>
+                <div className="text-blue-300 text-sm font-semibold">{title}</div>
+                <div className="text-gray-400 text-xs mt-1">{desc}</div>
+              </div>
+            ))}
+          </div>
+          <div className="bg-gray-900 rounded-xl p-5 border border-yellow-700 flex flex-col gap-4">
+            <div className="text-yellow-400 font-semibold">Validation Approach</div>
+            {[
+              { title: "Data parity checks", desc: "Compared OpenSearch results to monolith query results for the same inputs before cutting over each service." },
+              { title: "End-to-end lag checks", desc: "Verified events were flowing through the full pipeline and indexing within the expected window before declaring readiness." },
+              { title: "Hourly reconciliation job", desc: "Sampled documents and diffed expected vs actual aggregated state. Caught silent drift that parity checks alone wouldn't surface." },
+            ].map(({ title, desc }) => (
+              <div key={title} className="flex flex-col gap-1">
+                <div className="text-yellow-300 text-sm font-medium">{title}</div>
+                <div className="text-gray-500 text-xs leading-relaxed">{desc}</div>
+              </div>
+            ))}
+          </div>
+          <div className="bg-gray-900 rounded-xl p-5 border border-green-700 flex flex-col gap-3">
+            <div className="text-green-400 font-semibold">Outcome</div>
+            {[
+              { stat: "Zero", label: "data loss events during migration" },
+              { stat: "Zero", label: "downtime — ops team didn't notice the cutover" },
+              { stat: "6 services", label: "migrated over ~3 weeks" },
+            ].map(({ stat, label }) => (
+              <div key={label} className="bg-gray-800 rounded-lg p-3 text-center">
+                <div className="text-green-400 text-xl font-bold">{stat}</div>
+                <div className="text-gray-400 text-xs mt-1">{label}</div>
+              </div>
+            ))}
+            <div className="bg-blue-950 border border-blue-700 rounded-lg p-3 mt-auto">
+              <div className="text-blue-300 text-xs leading-relaxed">Rollback plan: feature flag to instantly revert to monolith search per service. Never needed it.</div>
             </div>
           </div>
         </div>
