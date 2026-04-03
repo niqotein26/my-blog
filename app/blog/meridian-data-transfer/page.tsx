@@ -28,7 +28,7 @@ function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
         <thead>
           <tr>
             {headers.map((h) => (
-              <th key={h} className="text-left text-blue-400 border-b border-gray-700 px-3 py-2 font-semibold">{h}</th>
+              <th key={h} className="text-left text-cyan-400 border-b border-gray-700 px-3 py-2 font-semibold">{h}</th>
             ))}
           </tr>
         </thead>
@@ -59,9 +59,29 @@ function InfoCard({ title, children, accent = "blue" }: { title: string; childre
 
 function CodeBlock({ children }: { children: string }) {
   return (
-    <pre className="bg-gray-950 rounded-lg p-4 text-sm text-green-300 font-mono overflow-x-auto my-4 border border-gray-800">
+    <pre className="bg-gray-950 rounded-lg p-4 text-sm text-emerald-300 font-mono overflow-x-auto my-4 border border-gray-800">
       <code>{children}</code>
     </pre>
+  );
+}
+
+function Diagram({ src, title }: { src: string; title: string }) {
+  return (
+    <div className="my-8 rounded-xl overflow-hidden border border-gray-700 bg-gray-950">
+      <div className="px-4 py-2 bg-gray-900 border-b border-gray-700 flex items-center gap-2">
+        <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
+        <span className="text-xs text-gray-400 font-mono">{title}</span>
+        <a href={src} target="_blank" rel="noopener noreferrer" className="ml-auto text-xs text-cyan-400 hover:text-cyan-300 transition">Open in Excalidraw &rarr;</a>
+      </div>
+      <iframe
+        src={src.replace('#', '#')}
+        width="100%"
+        height="500"
+        className="border-0 bg-[#1e1e2e]"
+        loading="lazy"
+        title={title}
+      />
+    </div>
   );
 }
 
@@ -71,25 +91,26 @@ export default function MeridianDataTransfer() {
   return (
     <main className="min-h-screen bg-black text-white font-sans">
       {/* Header */}
-      <div className="bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
-        <div className="max-w-4xl mx-auto px-6 py-16 text-center">
-          <div className="text-blue-400 text-sm font-mono tracking-widest uppercase mb-4">Engineering Design Document</div>
+      <div className="relative bg-gradient-to-b from-gray-900 via-gray-950 to-black border-b border-gray-800 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-950/40 via-transparent to-transparent"></div>
+        <div className="relative max-w-4xl mx-auto px-6 py-20 text-center">
+          <div className="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-4">Engineering Design Document</div>
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
             Meridian<br />
-            <span className="text-blue-400">TB-Scale Reliable Data Transfer</span>
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">TB-Scale Reliable Data Transfer</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
             A production-grade, highly available system for transferring terabytes of data across nodes with zero data loss, end-to-end integrity verification, and automatic failover.
           </p>
           <div className="flex flex-wrap justify-center gap-8 mt-6">
             {[
-              ["50+ TB", "Max Transfer"],
-              ["80%+", "Link Utilization"],
-              ["Zero", "Data Loss"],
-              ["<5s", "Resume Time"],
-            ].map(([val, label]) => (
+              ["50+ TB", "Max Transfer", "text-cyan-400"],
+              ["80%+", "Link Utilization", "text-emerald-400"],
+              ["Zero", "Data Loss", "text-amber-400"],
+              ["<5s", "Resume Time", "text-purple-400"],
+            ].map(([val, label, color]) => (
               <div key={label}>
-                <div className="text-2xl font-bold text-blue-400">{val}</div>
+                <div className={`text-2xl font-bold ${color}`}>{val}</div>
                 <div className="text-gray-500 text-sm mt-1">{label}</div>
               </div>
             ))}
@@ -109,7 +130,7 @@ export default function MeridianDataTransfer() {
                   href={`#section-${i}`}
                   onClick={() => setActiveSection(s)}
                   className={`text-sm px-2 py-1 rounded block transition ${
-                    activeSection === s ? "text-blue-400 bg-gray-900" : "text-gray-500 hover:text-gray-300"
+                    activeSection === s ? "text-cyan-400 bg-gray-900" : "text-gray-500 hover:text-gray-300"
                   }`}
                 >
                   {s}
@@ -125,7 +146,7 @@ export default function MeridianDataTransfer() {
           {/* Section 1: Executive Summary */}
           <SectionAnchor id="section-0">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Executive Summary</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6">Executive Summary</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
                 This document specifies the architecture, design decisions, and implementation details for <strong className="text-white">Meridian</strong>, a production-grade system that transfers terabyte-scale datasets between nodes with zero data loss.
               </p>
@@ -134,14 +155,14 @@ export default function MeridianDataTransfer() {
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
                 {[
-                  "Resumable Transfers",
-                  "Content-Defined Dedup",
-                  "Multi-Path Parallelism",
-                  "Cryptographic Integrity",
-                  "Automatic Failover",
-                  "Bandwidth Saturation",
-                ].map((f) => (
-                  <div key={f} className="bg-gray-900 rounded-lg px-3 py-2 text-center text-sm text-blue-300 border border-gray-800">
+                  ["Resumable Transfers", "text-cyan-300 border-cyan-900"],
+                  ["Content-Defined Dedup", "text-purple-300 border-purple-900"],
+                  ["Multi-Path Parallelism", "text-amber-300 border-amber-900"],
+                  ["Cryptographic Integrity", "text-rose-300 border-rose-900"],
+                  ["Automatic Failover", "text-emerald-300 border-emerald-900"],
+                  ["Bandwidth Saturation", "text-sky-300 border-sky-900"],
+                ].map(([f, colors]) => (
+                  <div key={f} className={`bg-gray-900 rounded-lg px-3 py-2 text-center text-sm border ${colors}`}>
                     {f}
                   </div>
                 ))}
@@ -152,7 +173,7 @@ export default function MeridianDataTransfer() {
           {/* Section 2: Requirements */}
           <SectionAnchor id="section-1">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Requirements</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent mb-6">Requirements</h2>
 
               <h3 className="text-xl font-semibold text-white mb-3">Functional Requirements</h3>
               <ul className="space-y-2 mb-8">
@@ -241,10 +262,15 @@ export default function MeridianDataTransfer() {
           {/* Section 3: High-Level Architecture */}
           <SectionAnchor id="section-2">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">High-Level Architecture</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-6">High-Level Architecture</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
                 The system consists of three planes: the <strong className="text-white">data plane</strong> (chunking, transfer, reassembly), the <strong className="text-white">control plane</strong> (coordination, state management, health monitoring), and the <strong className="text-white">observability plane</strong> (metrics, tracing, alerting).
               </p>
+
+              <Diagram
+                src="https://excalidraw.com/#json=WxWpXihlQkDwezsDpHjkg,pCXkAobc2wl8tAx-b3ngxQ"
+                title="Architecture: End-to-End Data Flow"
+              />
 
               <h3 className="text-xl font-semibold text-white mb-3">End-to-End Data Flow</h3>
               <div className="flex flex-wrap gap-2 mb-6">
@@ -267,9 +293,18 @@ export default function MeridianDataTransfer() {
               <h3 className="text-xl font-semibold text-white mb-3">Transfer State Machine</h3>
               <div className="bg-gray-900 rounded-lg p-4 border border-gray-800 mb-6 overflow-x-auto">
                 <div className="flex items-center gap-2 text-sm font-mono flex-wrap">
-                  {["QUEUED", "SCANNING", "CHUNKING", "NEGOTIATING", "TRANSFERRING", "VERIFYING", "COMMITTING", "COMPLETE"].map((state, i, arr) => (
+                  {[
+                    ["QUEUED", "text-gray-300 bg-gray-800"],
+                    ["SCANNING", "text-cyan-300 bg-cyan-950"],
+                    ["CHUNKING", "text-purple-300 bg-purple-950"],
+                    ["NEGOTIATING", "text-amber-300 bg-amber-950"],
+                    ["TRANSFERRING", "text-blue-300 bg-blue-950"],
+                    ["VERIFYING", "text-rose-300 bg-rose-950"],
+                    ["COMMITTING", "text-orange-300 bg-orange-950"],
+                    ["COMPLETE", "text-emerald-300 bg-emerald-950"],
+                  ].map(([state, colors], i, arr) => (
                     <span key={state} className="flex items-center gap-2">
-                      <span className="bg-gray-800 text-blue-300 px-2 py-1 rounded">{state}</span>
+                      <span className={`${colors} px-2 py-1 rounded`}>{state}</span>
                       {i < arr.length - 1 && <span className="text-gray-600">&rarr;</span>}
                     </span>
                   ))}
@@ -299,7 +334,7 @@ export default function MeridianDataTransfer() {
           {/* Section 4: Content-Defined Chunking */}
           <SectionAnchor id="section-3">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Content-Defined Chunking</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">Content-Defined Chunking</h2>
 
               <InfoCard title="Why Not Fixed-Size Chunks?" accent="red">
                 <p className="mb-2">
@@ -375,7 +410,12 @@ export default function MeridianDataTransfer() {
           {/* Section 5: Transport Layer */}
           <SectionAnchor id="section-4">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Transport Layer</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">Transport Layer</h2>
+
+              <Diagram
+                src="https://excalidraw.com/#json=Eiid2MDDq9BbAXO8oMaZ9,p1wPyWZEwR1F0swvpTIT1w"
+                title="Transport Layer: Protocol Stack & TCP vs UDP"
+              />
 
               <h3 className="text-xl font-semibold text-white mb-3">Protocol Stack: gRPC over HTTP/2 over TCP</h3>
               <div className="space-y-3 mb-6">
@@ -469,7 +509,7 @@ export default function MeridianDataTransfer() {
           {/* Section 6: Why a Single TCP Connection Doesn't Fill the Pipe */}
           <SectionAnchor id="section-5">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Why a Single TCP Connection Doesn&apos;t Fill the Pipe</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-red-400 bg-clip-text text-transparent mb-6">Why a Single TCP Connection Doesn&apos;t Fill the Pipe</h2>
               <p className="text-gray-300 leading-relaxed mb-6">
                 A 10 Gbps NIC can push 1.25 GB/s onto the wire. A single &ldquo;normal&rdquo; TCP connection achieves a fraction of this. Five independent bottlenecks compound:
               </p>
@@ -507,7 +547,12 @@ export default function MeridianDataTransfer() {
           {/* Section 7: Data Integrity */}
           <SectionAnchor id="section-6">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Data Integrity</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent mb-6">Data Integrity</h2>
+              <Diagram
+                src="https://excalidraw.com/#json=aFuFOGzf5A-9tG92k9srp,nh3A_FtGRJgoNowEJB5XQA"
+                title="Four Layers of Data Integrity & Merkle Tree"
+              />
+
               <p className="text-gray-300 leading-relaxed mb-6">Four layers of verification, each catching a different class of corruption at a different point in the pipeline:</p>
 
               <div className="space-y-4 mb-8">
@@ -539,7 +584,7 @@ export default function MeridianDataTransfer() {
           {/* Section 8: Reliability & Fault Tolerance */}
           <SectionAnchor id="section-7">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Reliability &amp; Fault Tolerance</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-6">Reliability &amp; Fault Tolerance</h2>
 
               <h3 className="text-xl font-semibold text-white mb-3">Write-Ahead Log (WAL)</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-4">
@@ -604,7 +649,7 @@ base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
           {/* Section 9: Security */}
           <SectionAnchor id="section-8">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Security</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent mb-6">Security</h2>
 
               <h3 className="text-xl font-semibold text-white mb-3">Transport Security</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-6">
@@ -644,7 +689,7 @@ base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
           {/* Section 10: Observability */}
           <SectionAnchor id="section-9">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Observability</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent mb-6">Observability</h2>
 
               <h3 className="text-xl font-semibold text-white mb-3">Key Metrics (Prometheus)</h3>
               <Table
@@ -685,7 +730,7 @@ base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
           {/* Section 11: Design Tradeoffs Summary */}
           <SectionAnchor id="section-10">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Design Tradeoffs Summary</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-400 to-amber-400 bg-clip-text text-transparent mb-6">Design Tradeoffs Summary</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
                 Every major decision involved rejecting viable alternatives:
               </p>
@@ -712,7 +757,7 @@ base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
           {/* Section 12: Operations & Capacity Planning */}
           <SectionAnchor id="section-11">
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-400 mb-6">Operations &amp; Capacity Planning</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent mb-6">Operations &amp; Capacity Planning</h2>
 
               <h3 className="text-xl font-semibold text-white mb-3">Kernel Tuning</h3>
               <CodeBlock>{`# Socket buffers
@@ -786,7 +831,7 @@ ulimit -n 1048576  # 1M open fds`}</CodeBlock>
           </SectionAnchor>
 
           {/* Conclusion */}
-          <section className="mb-16 bg-gradient-to-r from-gray-900 to-gray-800 rounded-lg p-8 border border-gray-700">
+          <section className="mb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 shadow-lg shadow-cyan-950/20">
             <h2 className="text-2xl font-bold text-white mb-4">Conclusion</h2>
             <p className="text-gray-300 leading-relaxed mb-4">
               Meridian is designed for organizations that need to move terabytes of data between nodes reliably, efficiently, and securely. Every design choice reflects a conscious tradeoff &mdash; gRPC over raw TCP for engineering velocity, CDC over fixed-size for incremental efficiency, WAL over database for I/O speed, multiple TCP connections over one for fault isolation.
@@ -798,7 +843,7 @@ ulimit -n 1048576  # 1M open fds`}</CodeBlock>
 
           {/* Back to blog */}
           <div className="text-center">
-            <a href="/blog" className="text-blue-400 hover:text-blue-300 transition text-sm">
+            <a href="/blog" className="text-cyan-400 hover:text-cyan-300 transition text-sm">
               &larr; Back to Blog
             </a>
           </div>
