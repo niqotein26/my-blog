@@ -5,6 +5,11 @@ export default function BlogPage() {
       <p className="text-lg text-gray-300 mb-8 text-center max-w-xl">Thoughts, tutorials, and stories on software engineering, distributed systems, and AI. Stay tuned for more!</p>
       {/* Blog posts will go here */}
       <div className="w-full flex flex-col items-center gap-6">
+        <a href="/blog/the-quiet-weight-of-i-could-have-been-more" className="block w-full max-w-xl bg-gray-900 rounded-lg p-6 border-l-4 border-blue-400 shadow hover:bg-gray-800 transition">
+          <h2 className="text-2xl font-bold text-blue-300 mb-1">The Quiet Weight of “I Could Have Been More”</h2>
+          <div className="text-sm text-gray-400 mb-2">April 2026 • Personal Essay</div>
+          <p className="text-gray-300">A reflection on potential, insecurity, comparison, regret, and the slow process of rebuilding confidence one day at a time.</p>
+        </a>
         <a href="/blog/elasticsearch-fundamentals" className="block w-full max-w-xl bg-gray-900 rounded-lg p-6 border-l-4 border-blue-400 shadow hover:bg-gray-800 transition">
           <div className="flex items-center gap-2 mb-1">
             <h2 className="text-2xl font-bold text-blue-300">Elasticsearch, Explained</h2>
