@@ -5,6 +5,18 @@ export default function BlogPage() {
       <p className="text-lg text-gray-300 mb-8 text-center max-w-xl">Thoughts, tutorials, and stories on software engineering, distributed systems, and AI. Stay tuned for more!</p>
       {/* Blog posts will go here */}
       <div className="w-full flex flex-col items-center gap-6">
+        <a href="/blog/elasticsearch-fundamentals" className="block w-full max-w-xl bg-gray-900 rounded-lg p-6 border-l-4 border-blue-400 shadow hover:bg-gray-800 transition">
+          <div className="flex items-center gap-2 mb-1">
+            <h2 className="text-2xl font-bold text-blue-300">Elasticsearch, Explained</h2>
+          </div>
+          <div className="text-sm text-gray-400 mb-2">April 2026 • Search • Architecture Guide</div>
+          <p className="text-gray-300">A practical guide to indices, mappings, object vs nested, Lucene internals, near real-time search, distributed architecture, and large-scale ingestion strategy.</p>
+          <div className="flex gap-2 mt-3 flex-wrap">
+            {["Lucene", "Mappings", "Distributed Search", "Bulk Ingestion", "Nested"].map(tag => (
+              <span key={tag} className="text-xs bg-blue-950 text-blue-300 px-2 py-0.5 rounded-full">{tag}</span>
+            ))}
+          </div>
+        </a>
         <a href="/blog/meridian-data-transfer" className="block w-full max-w-xl bg-gray-900 rounded-lg p-6 border-l-4 border-blue-400 shadow hover:bg-gray-800 transition">
           <div className="flex items-center gap-2 mb-1">
             <h2 className="text-2xl font-bold text-blue-300">Meridian: TB-Scale Reliable Data Transfer</h2>
