@@ -21,7 +21,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Rahul Garg",
-  description: "Personal blog, projects, and portfolio of Rahul Garg. Senior Software Engineer passionate about distributed systems, AI, and building impactful products.",
+  description:
+    "Rahul Garg is a backend engineer specializing in distributed systems, event-driven architectures, search infrastructure, and AI-powered platform systems.",
 };
 
 export default function RootLayout({

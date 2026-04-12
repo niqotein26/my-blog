@@ -65,18 +65,27 @@ export default function BlogPage() {
               Technical deep dives, system design notes, and personal essays.
             </h1>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              This blog sits somewhere between an engineer&apos;s field notes and a
-              personal journal. Some posts are architecture breakdowns. Others
-              are quieter reflections on ambition, confidence, and growth.
+              I&apos;m a backend engineer focused on distributed systems,
+              event-driven platforms, search infrastructure, and AI-powered
+              workflows. This blog sits somewhere between field notes from that
+              work and a personal journal.
             </p>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="/rahul-garg-resume-april-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full border border-[var(--border)] bg-white/80 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-teal-200 hover:text-teal-700"
+            >
+              View resume
+            </a>
             {["Distributed systems", "AI", "Search", "Career", "Personal writing"].map(
               (label) => (
                 <span
                   key={label}
-                  className="rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-sm text-teal-800"
+                  className="rounded-full border border-teal-200 bg-white/92 px-3 py-1 text-sm font-medium text-slate-800 shadow-sm"
                 >
                   {label}
                 </span>
@@ -94,8 +103,8 @@ export default function BlogPage() {
 
             const tagClasses =
               post.tone === "personal"
-                ? "bg-[rgba(182,95,52,0.1)] text-[var(--highlight)]"
-                : "bg-teal-50 text-teal-800";
+                ? "border border-[rgba(182,95,52,0.18)] bg-white/88 text-[var(--highlight)]"
+                : "border border-teal-200 bg-white/92 text-slate-800";
 
             return (
               <a
@@ -116,7 +125,7 @@ export default function BlogPage() {
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`rounded-full px-3 py-1 text-xs font-medium ${tagClasses}`}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold shadow-sm ${tagClasses}`}
                     >
                       {tag}
                     </span>
