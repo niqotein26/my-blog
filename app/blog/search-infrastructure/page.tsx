@@ -175,7 +175,7 @@ const slides = [
             <div key={step.label} className="flex items-center gap-3 flex-1">
               <div className={`flex-1 border rounded-xl p-4 text-center ${step.color}`}>
                 <div className="text-3xl mb-2">{step.icon}</div>
-                <div className="font-bold text-white text-sm">{step.label}</div>
+                <div className="font-bold text-slate-950 text-sm">{step.label}</div>
                 <div className="text-gray-400 text-xs mt-1">{step.sub}</div>
               </div>
               {i < 4 && <div className="text-blue-400 text-2xl flex-shrink-0">→</div>}
@@ -554,9 +554,9 @@ const slides = [
                 <div className="ml-4 text-green-300">fillData: &#123;...&#125;,</div>
                 <div className="ml-4 text-yellow-300">fulfillmentData: &#123;...&#125;,</div>
                 <div className="mt-2 ml-4 text-gray-500">// Derived fields</div>
-                <div className="ml-4 text-white">queueType: <span className="text-green-300">&apos;prescription-review&apos;</span>,</div>
-                <div className="ml-4 text-white">priority: <span className="text-red-300">&apos;high&apos;</span>,</div>
-                <div className="ml-4 text-white">updatedAt: <span className="text-gray-400">timestamp</span></div>
+                <div className="ml-4 text-slate-950">queueType: <span className="text-green-300">&apos;prescription-review&apos;</span>,</div>
+                <div className="ml-4 text-slate-950">priority: <span className="text-red-300">&apos;high&apos;</span>,</div>
+                <div className="ml-4 text-slate-950">updatedAt: <span className="text-gray-400">timestamp</span></div>
                 <div>&#125;</div>
               </div>
               <div className="mt-3 pt-3 border-t border-gray-700">
@@ -1075,9 +1075,9 @@ export default function SearchInfrastructurePresentation() {
   const slide = slides[current];
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col" style={{ fontFamily: "sans-serif" }}>
+    <div className="min-h-screen bg-transparent text-slate-900 flex flex-col" style={{ fontFamily: "var(--font-body)" }}>
       {/* Top bar */}
-      <div className="flex items-center justify-between px-8 py-3 border-b border-gray-800 bg-gray-950">
+      <div className="flex items-center justify-between px-8 py-3 border-b border-gray-800 bg-[rgba(255,250,242,0.94)] backdrop-blur-sm">
         <a href="/blog" className="text-gray-500 text-sm hover:text-blue-400 transition">← Blog</a>
         <div className="text-gray-500 text-sm font-mono">
           Search Infrastructure · Slide {current + 1} / {slides.length}
@@ -1099,7 +1099,7 @@ export default function SearchInfrastructurePresentation() {
       </div>
 
       {/* Bottom navigation */}
-      <div className="flex items-center justify-between px-8 py-4 border-t border-gray-800 bg-gray-950">
+      <div className="flex items-center justify-between px-8 py-4 border-t border-gray-800 bg-[rgba(255,250,242,0.94)] backdrop-blur-sm">
         <button
           onClick={prev}
           disabled={current === 0}

@@ -1,133 +1,300 @@
-import { FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa";
+
+const experience = [
+  {
+    company: "Blink Health",
+    title: "Senior Software Engineer",
+    period: "Feb 2022 - Present",
+    summary:
+      "Building high-scale systems across voice automation, search infrastructure, CRM, and payments.",
+    highlights: [
+      "Built a real-time voice assistant using Twilio and OpenAI that sharply reduced escalations.",
+      "Designed a centralized search platform on Elasticsearch and Kinesis with much lower latency at scale.",
+      "Led platform migrations, eventing infrastructure, and a 4-engineer team across contact center and payments.",
+    ],
+  },
+  {
+    company: "Amazon",
+    title: "Software Engineer",
+    period: "Jun 2020 - Feb 2022",
+    summary:
+      "Worked on vendor systems, compliance workflows, and data-heavy internal platforms.",
+    highlights: [
+      "Launched a serverless pipeline for large-scale payment hold summaries.",
+      "Migrated 20 TB of storage to S3 to improve reliability and cost efficiency.",
+      "Built services that streamlined vendor onboarding and compliance automation.",
+    ],
+  },
+];
+
+const projects = [
+  {
+    title: "Habit Pledge App",
+    description:
+      "A product in progress that helps people quit harmful habits by attaching real monetary commitment.",
+  },
+  {
+    title: "System Design Learnings",
+    description:
+      "An ongoing body of notes and essays around distributed systems, trade-offs, and architecture thinking.",
+  },
+];
+
+const skills = [
+  "Python",
+  "Java",
+  "TypeScript",
+  "JavaScript",
+  "C++",
+  "Django",
+  "React",
+  "PostgreSQL",
+  "DynamoDB",
+  "MySQL",
+  "Kubernetes",
+  "Terraform",
+  "Docker",
+  "AWS",
+  "LLMs",
+  "Search",
+  "Payments",
+  "Healthcare",
+];
+
+const writingThemes = [
+  "Distributed systems",
+  "Search and infrastructure",
+  "AI in production",
+  "Career and personal reflections",
+];
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-16 gap-12 bg-black text-white font-sans">
-      {/* Hero Section */}
-      <section className="text-center space-y-3">
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Rahul Garg <span className="text-blue-400">💡</span></h1>
-        <p className="text-base text-gray-400">25 year old something</p>
-        <div className="flex justify-center gap-4 mt-3">
-          <a href="mailto:rgarg2605@gmail.com" className="hover:text-blue-400 transition" title="Email"><FaEnvelope size={22} /></a>
-          <a href="https://www.linkedin.com/in/rahulgarg2605" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition" title="LinkedIn"><FaLinkedin size={22} /></a>
-          <a href="tel:8755181453" className="hover:text-blue-400 transition" title="Phone"><FaPhone size={22} /></a>
-        </div>
-        <div className="mt-6">
-          <a href="/blog" className="inline-block px-6 py-2 rounded-full bg-blue-400 text-black font-semibold shadow hover:bg-blue-500 transition">Blog</a>
-        </div>
-      </section>
+    <main className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 pb-12">
+        <section className="relative overflow-hidden rounded-[32px] border border-[var(--border)] bg-white/80 px-6 py-10 shadow-[0_28px_90px_rgba(28,36,49,0.08)] backdrop-blur-sm sm:px-8 lg:px-10">
+          <div className="absolute -left-16 top-0 h-44 w-44 rounded-full bg-[rgba(15,118,110,0.14)] blur-3xl" />
+          <div className="absolute right-0 top-10 h-40 w-40 rounded-full bg-[rgba(182,95,52,0.12)] blur-3xl" />
 
-      {/* About Section */}
-      <section className="max-w-2xl text-center space-y-2">
-        <h2 className="text-2xl font-semibold mb-1 text-blue-400">About</h2>
-        <p className="text-base text-gray-300">I build scalable systems and love automating the boring stuff. My work spans real-time voice assistants, high-throughput search, and CRM/payment platforms. Always learning, always shipping. Let's make something awesome together!</p>
-      </section>
+          <div className="relative grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
+            <div>
+              <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-teal-700">
+                Technical writing + personal notes
+              </span>
+              <h1 className="mt-6 max-w-3xl font-serif text-5xl leading-none text-slate-900 sm:text-6xl">
+                Rahul Garg
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+                Senior software engineer writing about distributed systems, AI,
+                career growth, and the quieter parts of building a life.
+              </p>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500">
+                I like practical systems, clean abstractions, and honest essays
+                about ambition, confidence, and the work behind the work.
+              </p>
 
-      {/* Places I Worked At Section */}
-      <section className="max-w-2xl w-full">
-        <h2 className="text-2xl font-semibold mb-3 text-blue-400 text-center">Places I Worked At</h2>
-        <div className="space-y-6">
-          <div className="bg-gray-900 rounded-lg p-5 shadow-md border-l-4 border-blue-400">
-            <div className="flex justify-between items-center mb-1">
-              <span className="font-bold">Senior Software Engineer, BlinkHealth</span>
-              <span className="text-sm text-gray-400">Feb 2022 – Present</span>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="/blog"
+                  className="inline-flex items-center rounded-full bg-teal-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-800"
+                >
+                  Read the blog
+                </a>
+                <a
+                  href="mailto:rgarg2605@gmail.com"
+                  className="inline-flex items-center rounded-full border border-[var(--border)] bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-teal-200 hover:text-teal-700"
+                >
+                  Say hello
+                </a>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-slate-500">
+                <a
+                  href="mailto:rgarg2605@gmail.com"
+                  title="Email"
+                  className="inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-2 transition hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700"
+                >
+                  <FaEnvelope size={16} />
+                  Email
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/rahulgarg2605"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                  className="inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-2 transition hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700"
+                >
+                  <FaLinkedin size={16} />
+                  LinkedIn
+                </a>
+                <a
+                  href="tel:8755181453"
+                  title="Phone"
+                  className="inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-2 transition hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700"
+                >
+                  <FaPhone size={16} />
+                  Call
+                </a>
+              </div>
             </div>
-            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 pl-2">
-              <li>Replaced legacy IVR with real-time voice assistant using Twilio & OpenAI, reducing escalations from 99% → 60%.</li>
-              <li>Built centralized Search Service (Elasticsearch + Kinesis), achieving 80-90% lower p95 latency at 2K+ RPS.</li>
-              <li>Designed eventing framework (SDK + Sidecar) for 30+ microservices, enabling real-time querying.</li>
-              <li>Led zero-downtime migration to a Central Patient Store, unifying reads/writes platform-wide.</li>
-              <li>Built custom CRM backend, saving $2M/yr and automating all voice-based flows.</li>
-              <li>Refactored Payment Service for multi-processor routing, enabling partner expansion and PCI compliance.</li>
-              <li>Lead 4-engineer team for contact center and payment infra, owning roadmap and delivery.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-900 rounded-lg p-5 shadow-md border-l-4 border-blue-400">
-            <div className="flex justify-between items-center mb-1">
-              <span className="font-bold">Software Engineer, Amazon</span>
-              <span className="text-sm text-gray-400">Jun 2020 – Feb 2022</span>
+
+            <div className="grid gap-4">
+              <div className="rounded-[28px] border border-[var(--border)] bg-[rgba(255,250,242,0.88)] p-5">
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Writing Focus
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {writingThemes.map((theme) => (
+                    <span
+                      key={theme}
+                      className="rounded-full bg-teal-50 px-3 py-1 text-sm text-teal-800"
+                    >
+                      {theme}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-[28px] border border-[var(--border)] bg-[rgba(255,255,255,0.72)] p-5">
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Right Now
+                </div>
+                <div className="mt-3 text-sm leading-7 text-slate-600">
+                  Building systems at scale, exploring product ideas, and using
+                  this blog as a place to publish both technical breakdowns and
+                  more personal essays.
+                </div>
+              </div>
             </div>
-            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 pl-2">
-              <li>Launched serverless pipeline (Lambda, Batch) for daily payment hold summaries for 200K+ vendors.</li>
-              <li>Migrated 20TB of document storage to S3, improving reliability and reducing costs.</li>
-              <li>Built full-stack services for vendor onboarding and compliance automation.</li>
-            </ul>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Internship Section */}
-      <section className="max-w-2xl w-full">
-        <h2 className="text-2xl font-semibold mb-3 text-blue-400 text-center">Internships</h2>
-        <div className="bg-gray-900 rounded-lg p-5 shadow-md border-l-4 border-blue-400">
-          <div className="flex justify-between items-center mb-1">
-            <span className="font-bold">Research Intern, Samsung Research Institute Bangalore</span>
-            <span className="text-sm text-gray-400">2019</span>
+        <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-[28px] border border-[var(--border)] bg-white/76 p-6 shadow-[0_18px_55px_rgba(28,36,49,0.06)] backdrop-blur-sm">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              About
+            </div>
+            <h2 className="mt-3 font-serif text-3xl text-slate-900">
+              Engineering with a bias toward clarity and momentum
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              I enjoy building scalable systems that make messy operational
+              work feel simpler. My background spans voice assistants,
+              event-driven search, CRM and payment platforms, and the kind of
+              infrastructure that quietly holds products together.
+            </p>
           </div>
-          <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 pl-2">
-            <li>Worked in a team focused on AI research, contributing to codebases in TensorFlow for research papers and experiments.</li>
-            <li>Collaborated on innovative projects at the intersection of computer vision and deep learning.</li>
-          </ul>
-        </div>
-      </section>
 
-      {/* Projects Section */}
-      <section className="max-w-2xl w-full">
-        <h2 className="text-2xl font-semibold mb-3 text-blue-400 text-center">Projects</h2>
-        <div className="bg-gray-900 rounded-lg p-5 shadow-md border-l-4 border-blue-400 space-y-2">
-          <div>
-            <span className="font-bold">Habit Pledge App</span>
-            <p className="text-gray-300 text-sm mt-1">Currently building an application to help people quit their bad habits by pledging money—turning commitment into real change.</p>
+          <div className="rounded-[28px] border border-[var(--border)] bg-[rgba(255,250,242,0.82)] p-6">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              Education
+            </div>
+            <h2 className="mt-3 font-serif text-3xl text-slate-900">
+              IIT Roorkee
+            </h2>
+            <p className="mt-2 text-sm uppercase tracking-[0.18em] text-teal-700">
+              B.Tech in Electrical Engineering
+            </p>
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              2016 - 2020
+            </p>
           </div>
-          <div>
-            <span className="font-bold">System Design Learnings</span>
-            <p className="text-gray-300 text-sm mt-1">Actively learning and reading about system design. Will be sharing my learnings and insights in the blog soon!</p>
+        </section>
+
+        <section className="rounded-[32px] border border-[var(--border)] bg-white/78 p-6 shadow-[0_18px_55px_rgba(28,36,49,0.06)] backdrop-blur-sm sm:p-8">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Experience
+              </div>
+              <h2 className="mt-2 font-serif text-3xl text-slate-900">
+                Work that shaped how I think
+              </h2>
+            </div>
+            <a
+              href="/blog/search-infrastructure"
+              className="text-sm font-semibold text-teal-700 transition hover:text-teal-800"
+            >
+              Featured case study
+            </a>
           </div>
-        </div>
-      </section>
 
-      {/* Skills Section */}
-      <section className="max-w-2xl w-full">
-        <h2 className="text-2xl font-semibold mb-3 text-blue-400 text-center">Skills</h2>
-        <div className="flex flex-wrap gap-2 justify-center">
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Python</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Java</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">JavaScript</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">TypeScript</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">C++</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Django</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">React</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">PostgreSQL</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">DynamoDB</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">MySQL</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Kubernetes</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Terraform</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Docker</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Git</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">AWS</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Machine Learning</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">LLMs</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Healthcare</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">FinTech</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Payments</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">CRM</span>
-          <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Search</span>
-        </div>
-      </section>
+          <div className="mt-8 grid gap-5">
+            {experience.map((role) => (
+              <article
+                key={role.company}
+                className="rounded-[24px] border border-[var(--border)] bg-[rgba(255,250,242,0.76)] p-5"
+              >
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900">
+                      {role.title}, {role.company}
+                    </h3>
+                    <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">
+                      {role.summary}
+                    </p>
+                  </div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700">
+                    {role.period}
+                  </span>
+                </div>
+                <ul className="mt-4 grid gap-2 text-sm leading-7 text-slate-600">
+                  {role.highlights.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-[var(--highlight)]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      {/* Education Section */}
-      <section className="max-w-2xl w-full">
-        <h2 className="text-2xl font-semibold mb-3 text-blue-400 text-center">Education</h2>
-        <div className="bg-gray-900 rounded-lg p-5 shadow-md border-l-4 border-blue-400 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-bold">Indian Institute Of Technology Roorkee</span>
-          <span className="text-sm text-gray-400">B.Tech in Electrical Engineering, 2016-2020</span>
-        </div>
-      </section>
+        <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-[28px] border border-[var(--border)] bg-white/78 p-6 shadow-[0_18px_55px_rgba(28,36,49,0.06)] backdrop-blur-sm">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              Projects
+            </div>
+            <div className="mt-5 grid gap-4">
+              {projects.map((project) => (
+                <article
+                  key={project.title}
+                  className="rounded-[22px] border border-[var(--border)] bg-[rgba(255,250,242,0.82)] p-4"
+                >
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-7 text-slate-600">
+                    {project.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
 
-      {/* Footer */}
-      <footer className="mt-10 text-center text-gray-500 text-sm">
-        <span>Made with ❤️ by Rahul Garg</span>
-      </footer>
+          <div className="rounded-[28px] border border-[var(--border)] bg-[rgba(255,250,242,0.84)] p-6">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              Skills
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-teal-100 bg-white/80 px-3 py-1.5 text-sm text-slate-700"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <footer className="px-2 text-center text-sm text-slate-500">
+          A place for system design notes, honest reflections, and the work in
+          between.
+        </footer>
+      </div>
     </main>
   );
 }

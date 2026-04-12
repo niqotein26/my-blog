@@ -1,9 +1,12 @@
 export default function TheQuietWeightPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-black text-white font-sans">
-      <article className="max-w-3xl w-full bg-gray-900 rounded-lg p-8 shadow-lg border-l-4 border-blue-400">
-        <div className="text-sm uppercase tracking-[0.25em] text-blue-400 mb-3">Reflection • Personal</div>
-        <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-blue-300">The Quiet Weight of “I Could Have Been More”</h1>
+    <main className="min-h-screen px-4 py-10 sm:px-6">
+      <article className="mx-auto w-full max-w-3xl rounded-[32px] border border-[rgba(182,95,52,0.18)] bg-[rgba(255,248,242,0.88)] p-8 shadow-[0_24px_70px_rgba(28,36,49,0.08)] backdrop-blur-sm sm:p-10">
+        <a href="/blog" className="text-sm font-semibold text-slate-500 transition hover:text-[var(--highlight)]">
+          Blog
+        </a>
+        <div className="mt-4 text-sm uppercase tracking-[0.25em] text-blue-400 mb-3">Reflection • Personal</div>
+        <h1 className="font-serif text-4xl sm:text-5xl font-semibold mb-3 text-blue-300">The Quiet Weight of “I Could Have Been More”</h1>
         <p className="text-lg text-gray-300 italic mb-6">A story of potential, comparison, and the slow rebuilding of self</p>
         <div className="text-sm text-gray-400 mb-8">April 2026 • Personal Essay</div>
 
@@ -26,7 +29,7 @@ export default function TheQuietWeightPage() {
           </p>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">Growing Up With Less, But Not Feeling Less</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">Growing Up With Less, But Not Feeling Less</h2>
             <p>
               I grew up in a small city in Haryana.
             </p>
@@ -50,7 +53,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">The First Big Proof: Cracking the System</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">The First Big Proof: Cracking the System</h2>
             <p>
               Without access to elite coaching, without a polished environment, I prepared mostly on my own.
             </p>
@@ -76,7 +79,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">The IIT Phase: Where Confidence Broke</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">The IIT Phase: Where Confidence Broke</h2>
             <p>
               At IIT Roorkee, everything changed.
             </p>
@@ -114,7 +117,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">Career: Drifting, Not Driving</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">Career: Drifting, Not Driving</h2>
             <p>
               Despite everything, I still landed good opportunities.
             </p>
@@ -141,7 +144,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">The Personal Side: Where It Hurt More</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">The Personal Side: Where It Hurt More</h2>
             <p>
               Throughout this journey, relationships also shaped me.
             </p>
@@ -164,7 +167,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">The Present: Figuring Stuff Out</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">The Present: Figuring Stuff Out</h2>
             <p>
               Right now, I&apos;m figuring stuff out.
             </p>
@@ -184,7 +187,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">The Comparison Loop</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">The Comparison Loop</h2>
             <p>
               This is where everything tightens.
             </p>
@@ -208,7 +211,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">The Regret Beneath It All</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">The Regret Beneath It All</h2>
             <p>
               If I&apos;m honest, most of this pain comes from one place:
             </p>
@@ -236,7 +239,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">The Desperation Phase</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">The Desperation Phase</h2>
             <p>
               Lately, this has turned into urgency.
             </p>
@@ -256,7 +259,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">The Realization</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">The Realization</h2>
             <p>
               After sitting with all of this, something became clear.
             </p>
@@ -272,7 +275,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">A Different Way to Look at It</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">A Different Way to Look at It</h2>
             <p>
               Maybe my life is not wasted.
             </p>
@@ -291,7 +294,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">The Shift That Matters</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">The Shift That Matters</h2>
             <p>
               Instead of asking:
             </p>
@@ -325,7 +328,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">Handling Comparison Differently</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">Handling Comparison Differently</h2>
             <p>
               Comparison still comes.
             </p>
@@ -344,7 +347,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">Rebuilding Confidence</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">Rebuilding Confidence</h2>
             <p>
               I used to think confidence was something I lacked.
             </p>
@@ -361,7 +364,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">What This Phase Really Is</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">What This Phase Really Is</h2>
             <p>
               This doesn&apos;t feel like success.
             </p>
@@ -381,7 +384,7 @@ export default function TheQuietWeightPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-3">Final Thought</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-3">Final Thought</h2>
             <p>
               I&apos;m 26.
             </p>

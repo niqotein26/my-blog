@@ -67,8 +67,8 @@ function CodeBlock({ children }: { children: string }) {
 
 function Diagram({ src, title }: { src: string; title: string }) {
   return (
-    <div className="my-8 rounded-xl overflow-hidden border border-gray-700 bg-gray-950">
-      <div className="px-4 py-2 bg-gray-900 border-b border-gray-700 flex items-center gap-2">
+    <div className="my-8 rounded-xl overflow-hidden border border-gray-700 bg-[rgba(255,250,242,0.92)] shadow-[0_18px_50px_rgba(28,36,49,0.06)]">
+      <div className="px-4 py-2 bg-white/88 border-b border-gray-700 flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
         <span className="text-xs text-gray-400 font-mono">{title}</span>
         <a href={src} target="_blank" rel="noopener noreferrer" className="ml-auto text-xs text-cyan-400 hover:text-cyan-300 transition">Open in Excalidraw &rarr;</a>
@@ -89,13 +89,13 @@ export default function MeridianDataTransfer() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-black text-white font-sans">
+    <main className="min-h-screen bg-transparent text-slate-900 font-sans">
       {/* Header */}
-      <div className="relative bg-gradient-to-b from-gray-900 via-gray-950 to-black border-b border-gray-800 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-950/40 via-transparent to-transparent"></div>
+      <div className="relative overflow-hidden border-b border-[var(--border)] bg-[linear-gradient(135deg,rgba(255,250,242,0.96),rgba(228,245,239,0.94))]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(15,118,110,0.14),transparent_48%)]"></div>
         <div className="relative max-w-4xl mx-auto px-6 py-20 text-center">
           <div className="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-4">Engineering Design Document</div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
+          <h1 className="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-4">
             Meridian<br />
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">TB-Scale Reliable Data Transfer</span>
           </h1>
@@ -141,14 +141,14 @@ export default function MeridianDataTransfer() {
         </nav>
 
         {/* Main content */}
-        <article className="flex-1 min-w-0">
+        <article className="flex-1 min-w-0 rounded-[32px] border border-[var(--border)] bg-white/78 p-6 shadow-[0_24px_70px_rgba(28,36,49,0.06)] backdrop-blur-sm sm:p-8">
 
           {/* Section 1: Executive Summary */}
           <SectionAnchor id="section-0">
             <section className="mb-16">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6">Executive Summary</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                This document specifies the architecture, design decisions, and implementation details for <strong className="text-white">Meridian</strong>, a production-grade system that transfers terabyte-scale datasets between nodes with zero data loss.
+                This document specifies the architecture, design decisions, and implementation details for <strong className="text-slate-950">Meridian</strong>, a production-grade system that transfers terabyte-scale datasets between nodes with zero data loss.
               </p>
               <p className="text-gray-300 leading-relaxed mb-4">
                 The system provides resumable transfers, content-defined deduplication, multi-path parallelism, end-to-end cryptographic integrity verification, and automatic failover &mdash; all while saturating available network bandwidth.
@@ -175,7 +175,7 @@ export default function MeridianDataTransfer() {
             <section className="mb-16">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent mb-6">Requirements</h2>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Functional Requirements</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Functional Requirements</h3>
               <ul className="space-y-2 mb-8">
                 {[
                   ["Bulk Transfer", "Transfer datasets from 1 GB to 50+ TB between two nodes (source and destination)."],
@@ -188,14 +188,14 @@ export default function MeridianDataTransfer() {
                   <li key={title} className="flex gap-3">
                     <span className="text-blue-400 mt-0.5 shrink-0">&#9654;</span>
                     <div>
-                      <span className="text-white font-semibold">{title}:</span>{" "}
+                      <span className="text-slate-950 font-semibold">{title}:</span>{" "}
                       <span className="text-gray-300">{desc}</span>
                     </div>
                   </li>
                 ))}
               </ul>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Performance Targets</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Performance Targets</h3>
               <Table
                 headers={["Metric", "Target", "Rationale"]}
                 rows={[
@@ -206,7 +206,7 @@ export default function MeridianDataTransfer() {
                 ]}
               />
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Reliability Targets</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Reliability Targets</h3>
               <Table
                 headers={["Metric", "Target", "Rationale"]}
                 rows={[
@@ -217,7 +217,7 @@ export default function MeridianDataTransfer() {
                 ]}
               />
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Security Requirements</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Security Requirements</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                 {[
                   ["Encryption in Transit", "TLS 1.3 with mTLS. AES-256-GCM, ChaCha20-Poly1305."],
@@ -232,7 +232,7 @@ export default function MeridianDataTransfer() {
                 ))}
               </div>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Scalability</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Scalability</h3>
               <ul className="space-y-1 text-gray-300 text-sm mb-8">
                 <li>&#8226; Datasets up to 50 TB in a single transfer job</li>
                 <li>&#8226; Up to 10 million chunks per transfer (~40 TB at 4 MB average)</li>
@@ -240,11 +240,11 @@ export default function MeridianDataTransfer() {
                 <li>&#8226; Horizontal scaling via multiple sender/receiver pairs</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Observability</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Observability</h3>
               <ul className="space-y-1 text-gray-300 text-sm mb-8">
-                <li>&#8226; <strong className="text-white">Metrics:</strong> Prometheus-compatible on :9090 &mdash; throughput, chunk latency histogram, dedup ratio, error rate, WAL backlog</li>
-                <li>&#8226; <strong className="text-white">Tracing:</strong> OpenTelemetry distributed tracing with per-chunk spans. 100% sampling on failures, 10% on success</li>
-                <li>&#8226; <strong className="text-white">Alerting:</strong> Pre-configured rules for throughput drops, integrity failures, stalled transfers, disk space, certificate expiry</li>
+                <li>&#8226; <strong className="text-slate-950">Metrics:</strong> Prometheus-compatible on :9090 &mdash; throughput, chunk latency histogram, dedup ratio, error rate, WAL backlog</li>
+                <li>&#8226; <strong className="text-slate-950">Tracing:</strong> OpenTelemetry distributed tracing with per-chunk spans. 100% sampling on failures, 10% on success</li>
+                <li>&#8226; <strong className="text-slate-950">Alerting:</strong> Pre-configured rules for throughput drops, integrity failures, stalled transfers, disk space, certificate expiry</li>
               </ul>
 
               <InfoCard title="Constraints & Assumptions" accent="yellow">
@@ -264,7 +264,7 @@ export default function MeridianDataTransfer() {
             <section className="mb-16">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-6">High-Level Architecture</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                The system consists of three planes: the <strong className="text-white">data plane</strong> (chunking, transfer, reassembly), the <strong className="text-white">control plane</strong> (coordination, state management, health monitoring), and the <strong className="text-white">observability plane</strong> (metrics, tracing, alerting).
+                The system consists of three planes: the <strong className="text-slate-950">data plane</strong> (chunking, transfer, reassembly), the <strong className="text-slate-950">control plane</strong> (coordination, state management, health monitoring), and the <strong className="text-slate-950">observability plane</strong> (metrics, tracing, alerting).
               </p>
 
               <Diagram
@@ -272,7 +272,7 @@ export default function MeridianDataTransfer() {
                 title="Architecture: End-to-End Data Flow"
               />
 
-              <h3 className="text-xl font-semibold text-white mb-3">End-to-End Data Flow</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">End-to-End Data Flow</h3>
               <div className="flex flex-wrap gap-2 mb-6">
                 {[
                   ["1. File Scanning", "Scan directory tree, compute metadata. inotify/fswatch for change detection."],
@@ -290,7 +290,7 @@ export default function MeridianDataTransfer() {
                 ))}
               </div>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Transfer State Machine</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Transfer State Machine</h3>
               <div className="bg-gray-900 rounded-lg p-4 border border-gray-800 mb-6 overflow-x-auto">
                 <div className="flex items-center gap-2 text-sm font-mono flex-wrap">
                   {[
@@ -312,7 +312,7 @@ export default function MeridianDataTransfer() {
                 <p className="text-gray-500 text-xs mt-3">Failure at any state triggers RETRYING (exponential backoff). After max retries: FAILED with diagnostic snapshot. Operators can PAUSE or CANCEL at any point.</p>
               </div>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Component Responsibilities</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Component Responsibilities</h3>
               <Table
                 headers={["Component", "Location", "Responsibility"]}
                 rows={[
@@ -341,13 +341,13 @@ export default function MeridianDataTransfer() {
                   Fixed-size chunking (e.g., splitting every 4 MB) breaks catastrophically on insertions. Consider a 1 TB file where a 50 KB row is inserted near the beginning:
                 </p>
                 <ul className="space-y-1 text-sm">
-                  <li>&#8226; <strong className="text-white">Fixed chunks:</strong> Every chunk boundary after the insertion shifts by 50 KB. Every chunk has a different SHA-256 hash. You must re-transfer the entire 1 TB file.</li>
-                  <li>&#8226; <strong className="text-white">CDC chunks:</strong> Boundaries are data-dependent via rolling hash. An insertion only affects 2&ndash;3 chunks near the edit point. All other boundaries remain stable.</li>
+                  <li>&#8226; <strong className="text-slate-950">Fixed chunks:</strong> Every chunk boundary after the insertion shifts by 50 KB. Every chunk has a different SHA-256 hash. You must re-transfer the entire 1 TB file.</li>
+                  <li>&#8226; <strong className="text-slate-950">CDC chunks:</strong> Boundaries are data-dependent via rolling hash. An insertion only affects 2&ndash;3 chunks near the edit point. All other boundaries remain stable.</li>
                 </ul>
                 <p className="mt-2 text-blue-300 font-semibold">CDC reduces re-transfer volume by 90&ndash;99% compared to fixed-size chunking.</p>
               </InfoCard>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Algorithm: Buzhash</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Algorithm: Buzhash</h3>
               <p className="text-gray-300 leading-relaxed mb-4">
                 We use Buzhash (bitwise rolling hash) rather than Rabin fingerprinting:
               </p>
@@ -363,7 +363,7 @@ export default function MeridianDataTransfer() {
                 We chose Buzhash because chunking is CPU-bound and runs inline with I/O. The 25% speed advantage keeps pace with NVMe read speeds (~3.5 GB/s). Rabin&apos;s better distribution doesn&apos;t matter because we rely on SHA-256 for content addressing, not the rolling hash.
               </p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Chunk Size Parameters</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Chunk Size Parameters</h3>
               <Table
                 headers={["Parameter", "Value", "Rationale"]}
                 rows={[
@@ -377,7 +377,7 @@ export default function MeridianDataTransfer() {
                 The 4 MB average is a three-way tension: smaller chunks (1 MB) give better dedup granularity but produce 10M chunks per 10 TB, requiring ~2.5 GB for the index. Larger chunks (16 MB) reduce index size but miss small edits. 4 MB is tunable per-environment.
               </p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">The Chunk Manifest</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">The Chunk Manifest</h3>
               <CodeBlock>{`ChunkMeta {
   chunk_index: u64,
   file_path:   String,
@@ -389,7 +389,7 @@ export default function MeridianDataTransfer() {
                 The manifest records each chunk&apos;s position (byte offset within the file), size, and content hash. It&apos;s deterministic: given the same file content and CDC parameters, the same boundaries are always produced. For multi-file transfers, chunk indices are global across all files. The sender can transmit chunks in any order; the receiver uses the manifest to place each chunk correctly.
               </p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Deduplication Index</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Deduplication Index</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
                   <div className="text-blue-400 font-semibold text-sm mb-1">RocksDB Backend</div>
@@ -417,7 +417,7 @@ export default function MeridianDataTransfer() {
                 title="Transport Layer: Protocol Stack & TCP vs UDP"
               />
 
-              <h3 className="text-xl font-semibold text-white mb-3">Protocol Stack: gRPC over HTTP/2 over TCP</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Protocol Stack: gRPC over HTTP/2 over TCP</h3>
               <div className="space-y-3 mb-6">
                 {[
                   ["TCP (Layer 4)", "Provides packet-level reliable delivery. 8 independent TCP connections, each with 128 MB socket buffer, BBR congestion control. Kernel handles retransmission at 1.5 KB granularity.", "green"],
@@ -435,10 +435,10 @@ export default function MeridianDataTransfer() {
                 })}
               </div>
               <InfoCard title="Combined" accent="blue">
-                8 TCP connections &times; 16 gRPC streams = <strong className="text-white">128 parallel chunk transfers</strong>. A packet loss on connection #3 only stalls its 16 streams; the other 112 streams continue unaffected.
+                8 TCP connections &times; 16 gRPC streams = <strong className="text-slate-950">128 parallel chunk transfers</strong>. A packet loss on connection #3 only stalls its 16 streams; the other 112 streams continue unaffected.
               </InfoCard>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Why 8 Connections and 16 Streams?</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Why 8 Connections and 16 Streams?</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
                 {[
                   ["Too Few (1 TCP, 128 streams)", "Single packet loss causes head-of-line blocking across all 128 streams. At 0.1% loss, effective throughput drops dramatically.", "red"],
@@ -455,28 +455,28 @@ export default function MeridianDataTransfer() {
                 })}
               </div>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">What is Multiplexing?</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">What is Multiplexing?</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-4">
                 Without multiplexing, sending 16 chunks simultaneously requires 16 TCP connections. With multiplexing, one TCP connection carries all 16 by interleaving. HTTP/2 chops each chunk&apos;s data into small frames (16 KB default), stamps each frame with a stream ID, and interleaves them on the wire. The receiver reads frames, sorts by stream ID, and reassembles each stream independently. This is purely a framing-layer concern &mdash; invisible to application code.
               </p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Why TCP and Not UDP?</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Why TCP and Not UDP?</h3>
               <InfoCard title="The Granularity Argument" accent="yellow">
-                <p className="mb-2">TCP operates at the <strong className="text-white">packet level (1.5 KB)</strong>. Our application operates at the <strong className="text-white">chunk level (4 MB)</strong>. A 4 MB chunk is ~2,700 packets. If one packet is lost:</p>
+                <p className="mb-2">TCP operates at the <strong className="text-slate-950">packet level (1.5 KB)</strong>. Our application operates at the <strong className="text-slate-950">chunk level (4 MB)</strong>. A 4 MB chunk is ~2,700 packets. If one packet is lost:</p>
                 <ul className="space-y-2 text-sm">
                   <li><strong className="text-green-400">With TCP:</strong> Kernel retransmits just 1.5 KB. Application receives a complete 4 MB chunk. Cost: 1.5 KB re-sent, ~50 ms delay.</li>
-                  <li><strong className="text-red-400">With UDP (chunk-level retry):</strong> SHA-256 verification fails. Discard all 4 MB and re-request. Cost: 4 MB re-sent &mdash; a <strong className="text-white">2,700&times; amplification</strong>. At 0.1% loss, ~70% of all data is re-transmitted.</li>
+                  <li><strong className="text-red-400">With UDP (chunk-level retry):</strong> SHA-256 verification fails. Discard all 4 MB and re-request. Cost: 4 MB re-sent &mdash; a <strong className="text-slate-950">2,700&times; amplification</strong>. At 0.1% loss, ~70% of all data is re-transmitted.</li>
                   <li><strong className="text-yellow-400">With UDP (packet-level reliability):</strong> Track individual packets, detect losses, retransmit. But this requires sequence numbers, retransmit timers, duplicate detection, congestion control &mdash; you&apos;ve reimplemented TCP.</li>
                 </ul>
                 <p className="mt-3 text-blue-300 font-semibold text-sm">TCP&apos;s ordering guarantee is a small tax (occasional HOL blocking). Its packet-level reliability saves us from 2,700&times; retransmit amplification.</p>
               </InfoCard>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">QUIC Fallback</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">QUIC Fallback</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-4">
                 QUIC runs over UDP but builds its own per-stream reliability, eliminating TCP&apos;s head-of-line blocking. Used as a fallback when measured packet loss exceeds 1% (typically WAN/internet paths). Not the default because: (1) NIC hardware offloading only works for TCP; (2) BBR over TCP is more mature; (3) kernel bypass (io_uring) integrates better with TCP sockets.
               </p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Adaptive Compression</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Adaptive Compression</h3>
               <Table
                 headers={["Algorithm", "Ratio", "Speed", "When Used"]}
                 rows={[
@@ -490,7 +490,7 @@ export default function MeridianDataTransfer() {
                 The first 64 KB of each chunk is sampled to estimate entropy. High-entropy data is sent uncompressed. Algorithm choice between LZ4/Zstd is based on the ratio of measured network throughput to available CPU cycles.
               </p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Zero-Copy I/O & Kernel Optimizations</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Zero-Copy I/O & Kernel Optimizations</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   ["sendfile()", "Transfers data directly from disk to socket without copying into userspace. Saves 2 memory copies per chunk."],
@@ -529,7 +529,7 @@ export default function MeridianDataTransfer() {
                 ))}
               </div>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Combined Effect</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Combined Effect</h3>
               <Table
                 headers={["Bottleneck", "Effect on 10 Gbps", "Mitigation"]}
                 rows={[
@@ -575,7 +575,7 @@ export default function MeridianDataTransfer() {
 
               <InfoCard title="Why Three Layers Instead of Just SHA-256?" accent="blue">
                 <p className="text-sm">
-                  SHA-256 alone is technically sufficient. CRC32C adds value because it is <strong className="text-white">20&times; faster</strong> and catches wire errors before wasting CPU on decompression and SHA-256. The Merkle tree adds value because per-chunk SHA-256 <strong className="text-white">cannot detect missing or misordered chunks</strong>. A single Merkle root comparison proves the entire dataset is correct; without it, you&apos;d compare 2.5 million hashes individually.
+                  SHA-256 alone is technically sufficient. CRC32C adds value because it is <strong className="text-slate-950">20&times; faster</strong> and catches wire errors before wasting CPU on decompression and SHA-256. The Merkle tree adds value because per-chunk SHA-256 <strong className="text-slate-950">cannot detect missing or misordered chunks</strong>. A single Merkle root comparison proves the entire dataset is correct; without it, you&apos;d compare 2.5 million hashes individually.
                 </p>
               </InfoCard>
             </section>
@@ -586,7 +586,7 @@ export default function MeridianDataTransfer() {
             <section className="mb-16">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-6">Reliability &amp; Fault Tolerance</h2>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Write-Ahead Log (WAL)</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Write-Ahead Log (WAL)</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-4">
                 The WAL is an append-only file on disk &mdash; not a service, not a database, not a distributed system. It stores a sequence of binary records, each describing a state transition:
               </p>
@@ -605,12 +605,12 @@ export default function MeridianDataTransfer() {
                 Before doing any action, write a WAL record describing the intended action. Only after the record is safely on disk (fsync&apos;d) do you execute the action. If you crash between the WAL write and the action, on restart you replay the WAL and retry. Because all operations are idempotent (sending a duplicate chunk is a no-op via dedup), retrying is always safe.
               </InfoCard>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Why a WAL and Not a Database?</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Why a WAL and Not a Database?</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                The WAL is append-only: every write is sequential I/O at the end of the file &mdash; the fastest possible disk operation. NVMe SSDs can do 500K+ sequential small writes per second. A database doing random I/O, maintaining B-tree indexes, and journaling is <strong className="text-white">10&ndash;50&times; slower</strong> for this access pattern. With 64 parallel workers recording state, a database&apos;s row-level locking creates contention. An append-only file has zero lock contention.
+                The WAL is append-only: every write is sequential I/O at the end of the file &mdash; the fastest possible disk operation. NVMe SSDs can do 500K+ sequential small writes per second. A database doing random I/O, maintaining B-tree indexes, and journaling is <strong className="text-slate-950">10&ndash;50&times; slower</strong> for this access pattern. With 64 parallel workers recording state, a database&apos;s row-level locking creates contention. An append-only file has zero lock contention.
               </p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Crash Recovery Scenarios</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Crash Recovery Scenarios</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                 {[
                   ["Sender Crash", "Read WAL from last checkpoint. Identify chunks in QUEUED or SENT-but-not-ACKED state. Resume from there. Skip file scanning if manifest already persisted."],
@@ -625,12 +625,12 @@ export default function MeridianDataTransfer() {
                 ))}
               </div>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Retry Strategy</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Retry Strategy</h3>
               <CodeBlock>{`delay = min(base × 2^attempt + random(0, jitter), max_delay)
 base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
               <p className="text-gray-400 text-sm">Per-connection retries: if a gRPC stream breaks, reconnect with fresh TLS handshake. All in-flight chunks on that stream are re-queued.</p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Chaos Engineering Tests</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Chaos Engineering Tests</h3>
               <Table
                 headers={["Test", "Mechanism", "Validates"]}
                 rows={[
@@ -651,12 +651,12 @@ base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
             <section className="mb-16">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent mb-6">Security</h2>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Transport Security</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Transport Security</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-6">
                 All data in transit uses TLS 1.3 with cipher suites AES-256-GCM-SHA384 and ChaCha20-Poly1305-SHA256. Mutual TLS (mTLS) requires both sender and receiver to present X.509 certificates signed by the internal CA. Certificate rotation every 90 days.
               </p>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Encryption at Rest &mdash; Key Hierarchy</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Encryption at Rest &mdash; Key Hierarchy</h3>
               <div className="space-y-3 mb-6">
                 {[
                   ["Master Key (MK)", "Stored in HSM / AWS KMS / HashiCorp Vault. Never leaves the HSM. Rotates quarterly."],
@@ -672,14 +672,14 @@ base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
 
               <InfoCard title="Why Chunk-Level, Not Volume-Level (LUKS)?" accent="green">
                 <ul className="space-y-1 text-sm">
-                  <li>&#8226; Per-transfer DEKs limit blast radius of key compromise to <strong className="text-white">one transfer</strong>, not all data</li>
-                  <li>&#8226; Destroying a DEK <strong className="text-white">cryptographically erases</strong> that transfer instantly, without re-encrypting the volume</li>
+                  <li>&#8226; Per-transfer DEKs limit blast radius of key compromise to <strong className="text-slate-950">one transfer</strong>, not all data</li>
+                  <li>&#8226; Destroying a DEK <strong className="text-slate-950">cryptographically erases</strong> that transfer instantly, without re-encrypting the volume</li>
                   <li>&#8226; Chunks can live on any storage backend (local disk, object store, archive) carrying their own encryption</li>
                 </ul>
                 <p className="mt-2 text-gray-500 text-xs">When LUKS is acceptable: single-tenant systems where per-transfer key isolation isn&apos;t required.</p>
               </InfoCard>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Access Control &amp; Audit</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Access Control &amp; Audit</h3>
               <p className="text-gray-300 text-sm leading-relaxed">
                 RBAC with OPA policy engine evaluates every transfer request against policies: allowed source/dest pairs, max transfer size, time-of-day windows, rate limits per-user. Immutable audit log records every API call, state transition, and access with who, what, when, from_ip, transfer_id, result. Retained for 2 years.
               </p>
@@ -691,7 +691,7 @@ base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
             <section className="mb-16">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent mb-6">Observability</h2>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Key Metrics (Prometheus)</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Key Metrics (Prometheus)</h3>
               <Table
                 headers={["Metric", "Type", "Description"]}
                 rows={[
@@ -706,12 +706,12 @@ base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
                 ]}
               />
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Distributed Tracing</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Distributed Tracing</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-4">
                 Every transfer gets a root span. Child spans for each phase: scan_files, chunk_file, negotiate_dedup, transfer_chunks (with per-chunk sub-spans for compress/encrypt/send), verify_merkle, commit. Sampling: 100% for failed transfers, 10% for successful (adaptive based on volume).
               </p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Alerting Rules</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Alerting Rules</h3>
               <Table
                 headers={["Alert", "Condition", "Severity"]}
                 rows={[
@@ -759,7 +759,7 @@ base: 100ms, jitter: 50ms, max: 30s, max_attempts: 5`}</CodeBlock>
             <section className="mb-16">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent mb-6">Operations &amp; Capacity Planning</h2>
 
-              <h3 className="text-xl font-semibold text-white mb-3">Kernel Tuning</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3">Kernel Tuning</h3>
               <CodeBlock>{`# Socket buffers
 net.core.rmem_max = 134217728          # 128 MB receive buffer max
 net.core.wmem_max = 134217728          # 128 MB send buffer max
@@ -779,7 +779,7 @@ vm.swappiness = 10
 # File descriptors
 ulimit -n 1048576  # 1M open fds`}</CodeBlock>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Deployment Modes</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Deployment Modes</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
                 {[
                   ["Lite Mode (2 nodes)", "In-process coordinator, no etcd. WAL + RocksDB on local disk. Simplest deployment."],
@@ -793,7 +793,7 @@ ulimit -n 1048576  # 1M open fds`}</CodeBlock>
                 ))}
               </div>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Hardware Recommendations</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Hardware Recommendations</h3>
               <Table
                 headers={["Component", "Specification", "Rationale"]}
                 rows={[
@@ -805,7 +805,7 @@ ulimit -n 1048576  # 1M open fds`}</CodeBlock>
                 ]}
               />
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">Transfer Time Estimates</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">Transfer Time Estimates</h3>
               <Table
                 headers={["Data Size", "10 Gbps", "25 Gbps", "100 Gbps"]}
                 rows={[
@@ -817,27 +817,27 @@ ulimit -n 1048576  # 1M open fds`}</CodeBlock>
               />
               <p className="text-gray-500 text-xs mt-2">Assumes 80% link utilization, 0% dedup, Zstd level 3 (3.2&times; compression). Actual times significantly lower with dedup on incremental transfers.</p>
 
-              <h3 className="text-xl font-semibold text-white mb-3 mt-8">When This System is Wrong</h3>
+              <h3 className="text-xl font-semibold text-slate-950 mb-3 mt-8">When This System is Wrong</h3>
               <InfoCard title="Use Something Simpler When..." accent="yellow">
                 <ul className="space-y-1 text-sm">
-                  <li>&#8226; <strong className="text-white">Sub-100 GB, one-time transfer:</strong> Use rsync or scp. Engineering investment unjustified.</li>
-                  <li>&#8226; <strong className="text-white">Streaming/real-time data:</strong> Use Kafka, Pulsar, or Kinesis. This is a batch system.</li>
-                  <li>&#8226; <strong className="text-white">Cloud-to-cloud with managed services:</strong> Use AWS DataSync, GCP Transfer Service, or Azure Data Box.</li>
-                  <li>&#8226; <strong className="text-white">Cross-region over public internet:</strong> Consider Aspera, Signiant with proprietary WAN optimization.</li>
-                  <li>&#8226; <strong className="text-white">Immutable write-once data:</strong> Simple PUT to object storage with file-level checksums. CDC overhead adds no value.</li>
+                  <li>&#8226; <strong className="text-slate-950">Sub-100 GB, one-time transfer:</strong> Use rsync or scp. Engineering investment unjustified.</li>
+                  <li>&#8226; <strong className="text-slate-950">Streaming/real-time data:</strong> Use Kafka, Pulsar, or Kinesis. This is a batch system.</li>
+                  <li>&#8226; <strong className="text-slate-950">Cloud-to-cloud with managed services:</strong> Use AWS DataSync, GCP Transfer Service, or Azure Data Box.</li>
+                  <li>&#8226; <strong className="text-slate-950">Cross-region over public internet:</strong> Consider Aspera, Signiant with proprietary WAN optimization.</li>
+                  <li>&#8226; <strong className="text-slate-950">Immutable write-once data:</strong> Simple PUT to object storage with file-level checksums. CDC overhead adds no value.</li>
                 </ul>
               </InfoCard>
             </section>
           </SectionAnchor>
 
           {/* Conclusion */}
-          <section className="mb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 shadow-lg shadow-cyan-950/20">
-            <h2 className="text-2xl font-bold text-white mb-4">Conclusion</h2>
+          <section className="mb-16 rounded-xl border border-cyan-200 bg-[linear-gradient(135deg,rgba(255,250,242,0.98),rgba(229,246,241,0.94))] p-8 shadow-[0_18px_45px_rgba(28,36,49,0.06)]">
+            <h2 className="font-serif text-2xl font-semibold text-slate-950 mb-4">Conclusion</h2>
             <p className="text-gray-300 leading-relaxed mb-4">
               Meridian is designed for organizations that need to move terabytes of data between nodes reliably, efficiently, and securely. Every design choice reflects a conscious tradeoff &mdash; gRPC over raw TCP for engineering velocity, CDC over fixed-size for incremental efficiency, WAL over database for I/O speed, multiple TCP connections over one for fault isolation.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              The system is not the right tool for every job. For small, one-time transfers, rsync is simpler. For real-time streaming, Kafka is better. For cloud-managed environments, first-party transfer services may suffice. Meridian&apos;s value proposition is the combination of <strong className="text-white">TB-scale throughput</strong>, <strong className="text-white">zero-data-loss integrity</strong>, <strong className="text-white">crash-safe resumability</strong>, and <strong className="text-white">production-grade observability</strong> &mdash; all in a single, self-contained system.
+              The system is not the right tool for every job. For small, one-time transfers, rsync is simpler. For real-time streaming, Kafka is better. For cloud-managed environments, first-party transfer services may suffice. Meridian&apos;s value proposition is the combination of <strong className="text-slate-950">TB-scale throughput</strong>, <strong className="text-slate-950">zero-data-loss integrity</strong>, <strong className="text-slate-950">crash-safe resumability</strong>, and <strong className="text-slate-950">production-grade observability</strong> &mdash; all in a single, self-contained system.
             </p>
           </section>
 

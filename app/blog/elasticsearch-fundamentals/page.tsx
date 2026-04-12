@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="mb-12">
-      <h2 className="text-2xl sm:text-3xl font-bold text-blue-300 mb-4">{title}</h2>
+      <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-blue-300 mb-4">{title}</h2>
       <div className="space-y-4 text-gray-300 leading-8">{children}</div>
     </section>
   );
@@ -50,11 +50,11 @@ function CodeBlock({ children }: { children: string }) {
 
 export default function ElasticsearchFundamentalsPage() {
   return (
-    <main className="min-h-screen bg-black text-white font-sans">
-      <div className="border-b border-gray-800 bg-gradient-to-b from-slate-950 via-black to-black">
+    <main className="min-h-screen bg-transparent text-slate-900 font-sans">
+      <div className="border-b border-[var(--border)] bg-[linear-gradient(135deg,rgba(255,250,242,0.96),rgba(228,245,239,0.94))]">
         <div className="max-w-4xl mx-auto px-6 py-20">
           <div className="text-sm uppercase tracking-[0.3em] text-blue-400 mb-4">Systems • Search • Architecture</div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-5">
+          <h1 className="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-5">
             Elasticsearch, Explained
             <span className="block text-blue-400">Core Concepts, Lucene, Architecture, and Real-World Usage</span>
           </h1>
@@ -84,7 +84,7 @@ export default function ElasticsearchFundamentalsPage() {
         </div>
       </div>
 
-      <article className="max-w-4xl mx-auto px-6 py-12">
+      <article className="mx-auto -mt-8 max-w-4xl rounded-[32px] border border-[var(--border)] bg-white/78 px-6 py-10 shadow-[0_24px_70px_rgba(28,36,49,0.06)] backdrop-blur-sm sm:px-8">
         <Section title="Why Elasticsearch Exists">
           <p>
             Elasticsearch is a distributed search and analytics engine built for querying large volumes of structured
@@ -105,16 +105,16 @@ export default function ElasticsearchFundamentalsPage() {
           <p>There are four foundational concepts worth locking in early: index, document, field, and mapping.</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong className="text-white">Document:</strong> one JSON object stored in Elasticsearch.
+              <strong className="text-slate-950">Document:</strong> one JSON object stored in Elasticsearch.
             </li>
             <li>
-              <strong className="text-white">Field:</strong> one key inside that JSON document.
+              <strong className="text-slate-950">Field:</strong> one key inside that JSON document.
             </li>
             <li>
-              <strong className="text-white">Index:</strong> a collection of related documents.
+              <strong className="text-slate-950">Index:</strong> a collection of related documents.
             </li>
             <li>
-              <strong className="text-white">Mapping:</strong> the schema-like definition describing how fields are
+              <strong className="text-slate-950">Mapping:</strong> the schema-like definition describing how fields are
               indexed and stored.
             </li>
           </ul>
@@ -256,19 +256,19 @@ export default function ElasticsearchFundamentalsPage() {
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong className="text-white">Cluster:</strong> the full Elasticsearch deployment.
+              <strong className="text-slate-950">Cluster:</strong> the full Elasticsearch deployment.
             </li>
             <li>
-              <strong className="text-white">Node:</strong> one running Elasticsearch instance in the cluster.
+              <strong className="text-slate-950">Node:</strong> one running Elasticsearch instance in the cluster.
             </li>
             <li>
-              <strong className="text-white">Index:</strong> logical collection of documents.
+              <strong className="text-slate-950">Index:</strong> logical collection of documents.
             </li>
             <li>
-              <strong className="text-white">Shard:</strong> one partition of an index, backed by Lucene.
+              <strong className="text-slate-950">Shard:</strong> one partition of an index, backed by Lucene.
             </li>
             <li>
-              <strong className="text-white">Replica:</strong> a copied shard for resilience and search scaling.
+              <strong className="text-slate-950">Replica:</strong> a copied shard for resilience and search scaling.
             </li>
           </ul>
           <p>
